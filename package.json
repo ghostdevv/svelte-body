@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "svelte": "./src/index.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index.d.ts",
   "files": [
     "LICENSE",
     "README.md",
@@ -33,7 +33,6 @@
     "prettier-plugin-svelte": "^2.4.0",
     "rollup": "^2.32.0",
     "rollup-plugin-svelte": "^7.1.0",
-    "sveld": "^0.10.2",
     "svelte": "^3.24.0"
   }
 }
