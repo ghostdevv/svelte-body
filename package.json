@@ -1,0 +1,38 @@
+{
+  "name": "svelte-body",
+  "version": "1.0.0-0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "svelte": "./src/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "src",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghostdevv/svelte-body.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ghostdevv/svelte-body/issues"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "run-p dev:*",
+    "dev:build": "rollup -c -w",
+    "dev:docs": "cd docs && npm run dev"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier-plugin-svelte": "^2.4.0",
+    "rollup": "^2.32.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "sveld": "^0.10.2",
+    "svelte": "^3.24.0"
+  }
+}
