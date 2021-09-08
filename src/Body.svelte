@@ -25,7 +25,7 @@
 				`;
 
         // Apply given classes
-        document.body.classList.add(...classes);
+        if (classes?.length) document.body.classList.add(...classes);
 
         return () => {
             // When the component is destroyed remove the styles that we applied on mount
@@ -34,7 +34,7 @@
             );
 
             // Remove classes
-            document.body.classList.remove(...classes);
+            if (classes?.length) document.body.classList.remove(...classes);
         };
     });
 </script>
