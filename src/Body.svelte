@@ -8,8 +8,6 @@
         .split(' ')
         .filter((x) => x.trim() != '');
 
-    console.log(1, classes);
-
     // Create pseudo html element, the parser for styles is amazing
     const pseudoElement = document.createElement('div');
 
