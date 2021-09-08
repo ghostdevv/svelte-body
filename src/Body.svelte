@@ -16,7 +16,7 @@
 
     // For each property in the styles obect apply it to the elemnt
     if (typeof style == 'object')
-        for (const [property, value] of Object.entries(styles))
+        for (const [property, value] of Object.entries(style))
             pseudoElement.style[property] = value;
 
     onMount(() => {
