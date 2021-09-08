@@ -6,6 +6,11 @@ Apply styles to the body in routes! Designed to work with Svelte Kit and Routify
 # Why?
 Currently in Svelte Kit, Routify, applying styles per page to the body doesn't work. You can't use `:global (body)` since the style tags aren't removed and reapplied on route change. svelte-body handles that for you!
 
+# Install
+```bash
+npm i svelte-body -D
+```
+
 # Applying Styles
 You can use `style=""` like you would with any regular html element!
 
