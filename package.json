@@ -1,6 +1,6 @@
 {
   "name": "svelte-body",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "Apply styles to the body in routes! Designed to work with Svelte Kit and Routify.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
