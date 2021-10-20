@@ -62,9 +62,6 @@ export const style = (node, styleData = {}) => {
             update(styleData);
         },
 
-        destroy: () => {
-            unset();
-            unsubscribe();
-        },
+        destroy: unset,
     };
 };
