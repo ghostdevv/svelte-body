@@ -1,15 +1,15 @@
 <script>
     import { onMount } from 'svelte';
 
+    // Create pseudo html element, the parser for styles is amazing
+    const pseudoElement = document.createElement('div');
+
     export let style;
 
     // We can't use class as a prop directly sine it's a keyword in JS, so we do a work around and split it by a space since class names can't have a space in them
     const classes = ($$props?.class || '')
         .split(' ')
         .filter((x) => x.trim() != '');
-
-    // Create pseudo html element, the parser for styles is amazing
-    const pseudoElement = document.createElement('div');
 
     // Give the pseudo element our style string, it can handle this
     if (typeof style == 'string') pseudoElement.style = style;
