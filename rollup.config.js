@@ -1,7 +1,7 @@
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import svelte from 'rollup-plugin-svelte'
-import pkg from './package.json'
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import svelte from 'rollup-plugin-svelte';
+import pkg from './package.json';
 
 export default {
     input: 'src/index.js',
@@ -10,4 +10,4 @@ export default {
         { file: pkg.main, format: 'umd', name: 'svelte-body' },
     ],
     plugins: [svelte({ emitCss: false }), resolve(), commonjs()],
-}
+};
