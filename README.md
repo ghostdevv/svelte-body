@@ -34,3 +34,28 @@ Alternativley you can use a style object like so:
 
 <Body {style} />
 ```
+
+# Actions
+There are also [svelte actions](https://svelte.dev/docs#use_action) that can be used on `<svelte:body />`:
+
+- `classList`
+    ```html
+    <script>
+        import { classList } from 'svelte/body';
+    </script>
+
+    <svelte:body use:classList={"red green blue"}>
+    ```
+
+- `style`
+    ```html
+    <script>
+        import { style } from 'svelte/body';
+    </script>
+
+    <svelte:body use:style={"background-color: blue;"}>
+    ```
+
+# Support
+-   Join the [discord](https://discord.gg/2Vd4wAjJnm)<br>
+-   Create a issue on the [github](https://github.com/ghostdevv/svelte-body)
