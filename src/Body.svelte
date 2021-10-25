@@ -1,8 +1,9 @@
 <script>
     import { classList, style as styleAction } from './actions';
 
-    let classes = ''
-    export { classes as class }
+    let classes = '';
+    export { classes as class };
+
     export let style;
 </script>
 
