@@ -1,7 +1,7 @@
 <script lang="ts">
     // import logo from './assets/svelte.png';
     import Counter from './lib/Counter.svelte';
-    import { style } from '../../dist';
+    import { style } from 'svelte-body';
 </script>
 
 <svelte:body use:style={{ background: 'blue', '--cool-css-prop': 'nlue' }} />
