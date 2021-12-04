@@ -48,6 +48,21 @@ Alternativley you can use a style object like so:
 <Body {style} />
 ```
 
+For Class, you can pass a combination of string, object, and array of both of these. Literally anything that can be passed to [class](https://github.com/lukeed/clsx).
+
+```svelte
+<script>
+  import { classList } from 'svelte-body';
+
+  let isBlue = true;
+</script>
+
+<Body class="red green blue" />
+<Body class={{ red: true, blue: isBlue }} />
+<Body class={['red', isBlue && 'blue']} />
+<Body class={[ 'red', { blue: isBlue } ]} />
+```
+
 # Actions
 
 There are also [svelte actions](https://svelte.dev/docs#use_action) that can be used on `<svelte:body />`:
@@ -59,7 +74,10 @@ There are also [svelte actions](https://svelte.dev/docs#use_action) that can be 
         import { classList } from 'svelte-body';
     </script>
 
-    <svelte:body use:classList={"red green blue"}>
+    <svelte:body use:classList={"red green blue"} />
+    <svelte:body use:classList={{ red: true, blue: isBlue }} />
+    <svelte:body use:classList={['red', isBlue && 'blue']} />
+    <svelte:body use:classList={[ 'red', { blue: isBlue } ]} />
     ```
 
 -   `style`
@@ -69,7 +87,7 @@ There are also [svelte actions](https://svelte.dev/docs#use_action) that can be 
         import { style } from 'svelte-body';
     </script>
 
-    <svelte:body use:style={"background-color: blue;"}>
+    <svelte:body use:style={"background-color: blue;"} />
     ```
 
     It can also take an object:

@@ -1,10 +1,12 @@
 <script lang="ts">
     // import logo from './assets/svelte.png';
     import Counter from './lib/Counter.svelte';
-    import { style } from 'svelte-body';
+    import { style, classList } from '../../dist';
 </script>
 
-<svelte:body use:style={{ background: 'blue', '--cool-css-prop': 'nlue' }} />
+<svelte:body
+    use:style={{ color: 'blue', '--cool-css-prop': 'nlue' }}
+    use:classList={['hello', { blue: true }]} />
 
 <main>
     <!-- <img src={logo} alt="Svelte Logo" /> -->
