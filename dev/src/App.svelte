@@ -5,7 +5,7 @@
 </script>
 
 <svelte:body
-    use:style={{ color: 'blue', '--cool-css-prop': 'nlue' }}
+    use:style={{ color: 'blue', '--cool-css-prop': 'blue' }}
     use:classList={['hello', { blue: true }]} />
 
 <main>
