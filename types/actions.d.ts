@@ -34,42 +34,13 @@ declare module 'csstype' {
  *```svelte
  * <script>
  *   import { classList } from 'svelte-body';
+ *
+ *   let isBlue = true;
  * </script>
  *
  * <svelte:body use:classList={"red green blue"}>
- *```
- *
- * @example
- *
- *```svelte
- * <script>
- *   import { classList } from 'svelte-body';
- *
- *   let isBlue = true;
- * </script>
- *
  * <svelte:body use:classList={{ red: true, blue: isBlue }}>
- *```
- *
- * @example
- *
- *```svelte
- * <script>
- *   import { classList } from 'svelte-body';
- *
- *   let isBlue = true;
- * </script>
- *
  * <svelte:body use:classList={['red', isBlue && 'blue']}>
- *```
- *
- * @example
- *
- * ```svelte
- * <script>
- *  import { classList } from 'svelte-body';
- * </script>
- *
  * <svelte:body use:classList={[ 'red', { blue: isBlue } ]}>
  *```
  *
@@ -92,15 +63,6 @@ export function classList(
  * </script>
  *
  * <svelte:body use:style={"background-color: blue;"}>
- *```
- *
- * @example
- *
- *```svelte
- * <script>
- *   import { style } from 'svelte-body';
- * </script>
- *
  * <svelte:body use:style={{ backgroundColor: 'blue' }}>
  *```
  *
