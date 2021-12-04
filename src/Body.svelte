@@ -4,7 +4,7 @@
     let classes = '';
     export { classes as class };
 
-    export let style;
+    export let style = '';
 </script>
 
 <!-- Use actions to avoid code duplication and make svelte-body more reactive -->
