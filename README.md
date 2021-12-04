@@ -39,7 +39,7 @@ Alternativley you can use a style object like so:
     import { Body } from 'svelte-body';
 
     const style = {
-        'background-color': 'violet',
+        backgroundColor: 'violet',
         color: 'white',
         '--cool-css-prop': '😎'
     };
