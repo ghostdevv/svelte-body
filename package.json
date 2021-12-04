@@ -35,5 +35,8 @@
     "rollup": "^2.32.0",
     "rollup-plugin-svelte": "^7.1.0",
     "svelte": "^3.24.0"
+  },
+  "dependencies": {
+    "csstype": "^3.0.10"
   }
 }
