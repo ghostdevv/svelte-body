@@ -33,7 +33,7 @@ export const style = (node, styleData = {}) => {
 
         if (typeof styleData == 'object')
             for (const [property, value] of Object.entries(styleData))
-                pseudoElement.style[property] = value;
+                pseudoElement.style.setProperty(property, value);
 
         // Combine body's existing styles with computed ones
         node.style = `
