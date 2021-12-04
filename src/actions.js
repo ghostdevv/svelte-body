@@ -1,7 +1,8 @@
 import { writable, get } from 'svelte/store';
+import clsx from 'clsx';
 
 export const classList = (node, classString = '') => {
-    const classes = writable(classString.split(' ').filter(Boolean));
+    const classes = writable(clsx(classString).split(' ').filter(Boolean));
 
     // When the classes store changes add the new classes
     const unsubscribe = classes.subscribe((list) => {
@@ -32,8 +33,14 @@ export const style = (node, styleData = {}) => {
         if (typeof styleData == 'string') pseudoElement.style = styleData;
 
         if (typeof styleData == 'object')
-            for (const [property, value] of Object.entries(styleData))
-                pseudoElement.style.setProperty(property, value);
+            for (const [property, value] of Object.entries(styleData)) {
+                // Do a setProperty in case it's a CSS variable
+                if (property.startsWith('--')) {
+                    pseudoElement.style.setProperty(property, value);
+                } else {
+                    pseudoElement.style[property] = value;
+                }
+            }
 
         // Combine body's existing styles with computed ones
         node.style = `
