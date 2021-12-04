@@ -12,6 +12,12 @@ Currently in Svelte Kit and Routify, applying styles per page to the body doesn'
 
 ```bash
 npm i svelte-body -D
+
+# pnpm
+pnpm add svelte-body -D
+
+# yarn
+yarn add svelte-body -D
 ```
 
 # Usage
@@ -23,7 +29,7 @@ Just like in regular html you can apply classes with `class=""` and styles with 
     import { Body } from 'svelte-body';
 </script>
 
-<body class="some classes" style="color: blue" />
+<Body class="some classes" style="color: blue" />
 ```
 
 Alternativley you can use a style object like so:
@@ -35,10 +41,11 @@ Alternativley you can use a style object like so:
     const style = {
         'background-color': 'violet',
         color: 'white',
+        '--cool-css-prop': '😎'
     };
 </script>
 
-<body {style} />
+<Body {style} />
 ```
 
 # Actions
