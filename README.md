@@ -13,7 +13,7 @@ npm i svelte-body -D
 
 # Usage
 Just like in regular html you can apply classes with `class=""` and styles with `style=""`.
-```svelte
+```html
 <script>
     import { Body } from 'svelte-body';
 </script>
@@ -22,7 +22,7 @@ Just like in regular html you can apply classes with `class=""` and styles with 
 ```
 
 Alternativley you can use a style object like so:
-```svelte
+```html
 <script>
     import { Body } from 'svelte-body';
 
@@ -41,7 +41,7 @@ There are also [svelte actions](https://svelte.dev/docs#use_action) that can be 
 - `classList`
     ```html
     <script>
-        import { classList } from 'svelte/body';
+        import { classList } from 'svelte-body';
     </script>
 
     <svelte:body use:classList={"red green blue"}>
@@ -50,7 +50,7 @@ There are also [svelte actions](https://svelte.dev/docs#use_action) that can be 
 - `style`
     ```html
     <script>
-        import { style } from 'svelte/body';
+        import { style } from 'svelte-body';
     </script>
 
     <svelte:body use:style={"background-color: blue;"}>
