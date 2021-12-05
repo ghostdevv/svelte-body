@@ -15,10 +15,7 @@ export default {
         resolve(),
         commonjs(),
         copy({
-            targets: [
-                { src: './types/*', dest: './dist' },
-                { src: './LICENSE', dest: './dist' },
-            ],
+            targets: [{ src: './types/*', dest: './dist' }],
         }),
     ],
 };
