@@ -18,6 +18,7 @@
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
+    "pub": "cd package && npm publish",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
