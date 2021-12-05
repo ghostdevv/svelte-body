@@ -48,7 +48,7 @@ Alternativley you can use a style object like so:
 <Body {style} />
 ```
 
-For Class, you can pass a combination of string, object, and array of both of these. Literally anything that can be passed to [class](https://github.com/lukeed/clsx).
+For Class, you can pass a combination of string, object, and array of both of these. Literally anything that can be passed to [clsx](https://github.com/lukeed/clsx).
 
 ```svelte
 <script>
