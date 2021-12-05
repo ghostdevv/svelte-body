@@ -72,6 +72,8 @@ There are also [svelte actions](https://svelte.dev/docs#use_action) that can be 
     ```html
     <script>
         import { classList } from 'svelte-body';
+
+        let isBlue = true;
     </script>
 
     <svelte:body use:classList={"red green blue"} />
