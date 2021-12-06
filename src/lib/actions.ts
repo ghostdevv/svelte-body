@@ -26,7 +26,7 @@ export const classList = (
     node: HTMLElement,
     classString: string | ClassValue = '',
 ) => {
-    const classes = writable(clsx(classString).split(' ').filter(Boolean));
+    const classes = writable(clsx(classString).split(' '));
 
     // When the classes store changes add the new classes
     const unsubscribe = classes.subscribe((list) => {
