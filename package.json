@@ -10,10 +10,7 @@
   "bugs": {
     "url": "https://github.com/ghostdevv/svelte-body/issues"
   },
-  "author": {
-    "name": "GhostDevV",
-    "url": "https://ghostdev.xyz/"
-  },
+  "author": "GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
