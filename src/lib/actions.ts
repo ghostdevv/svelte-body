@@ -26,7 +26,7 @@ export const classList = (
     node: HTMLElement,
     classString: string | ClassValue = '',
 ) => {
-    const classes = writable(clsx(classString).split(' '));
+    const classes = writable(clsx(classString).split(' ').filter(Boolean));
 
     // When the classes store changes add the new classes
     const unsubscribe = classes.subscribe((list) => {
@@ -39,7 +39,7 @@ export const classList = (
     return {
         update: (classString: string | ClassValue = '') => {
             unset();
-            classes.set(clsx(classString).split(' '));
+            classes.set(clsx(classString).split(' ').filter(Boolean));
         },
 
         destroy: () => {
