@@ -16,10 +16,10 @@ import type { Properties as CSSProperties } from 'csstype';
  *   let isBlue = true;
  * </script>
  *
- * <svelte:body use:classList={"red green blue"}>
- * <svelte:body use:classList={{ red: true, blue: isBlue }}>
- * <svelte:body use:classList={['red', isBlue && 'blue']}>
- * <svelte:body use:classList={[ 'red', { blue: isBlue } ]}>
+ * <svelte:body use:classList={"red green blue"} />
+ * <svelte:body use:classList={{ red: true, blue: isBlue }} />
+ * <svelte:body use:classList={['red', isBlue && 'blue']} />
+ * <svelte:body use:classList={[ 'red', { blue: isBlue } ]} />
  *```
  *
  * @param {HTMLElement} node
@@ -62,8 +62,8 @@ export const classList = (
  *   import { style } from 'svelte-body';
  * </script>
  *
- * <svelte:body use:style={"background-color: blue;"}>
- * <svelte:body use:style={{ backgroundColor: 'blue' }}>
+ * <svelte:body use:style={"background-color: blue;"} />
+ * <svelte:body use:style={{ backgroundColor: 'blue' }} />
  *```
  *
  * @param {HTMLElement} node
