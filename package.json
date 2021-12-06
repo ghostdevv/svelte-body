@@ -11,9 +11,13 @@
     "url": "https://github.com/ghostdevv/svelte-body/issues"
   },
   "author": "GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
+  "contributors": [
+    "GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
+    "Puru Vijay <devpuruvj@gmail.com> (https://puruvj.dev/)"
+  ],
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "build": "svelte-kit build && svelte-kit package",
     "package": "svelte-kit package",
     "pub": "cd package && npm publish"
   },
