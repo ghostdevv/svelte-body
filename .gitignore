@@ -2,3 +2,10 @@ node_modules
 .history
 dist
 .routify
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
