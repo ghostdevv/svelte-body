@@ -39,7 +39,7 @@ export const classList = (
     return {
         update: (classString: string | ClassValue = '') => {
             unset();
-            classes.set(clsx(classString).split(' ')/* .filter(Boolean) */);
+            classes.set(clsx(classString).split(' '));
         },
 
         destroy: () => {
