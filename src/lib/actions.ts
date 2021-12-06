@@ -21,9 +21,6 @@ import type { Properties as CSSProperties } from 'csstype';
  * <svelte:body use:classList={['red', isBlue && 'blue']} />
  * <svelte:body use:classList={[ 'red', { blue: isBlue } ]} />
  *```
- *
- * @param {HTMLElement} node
- * @param classString
  */
 export const classList = (
     node: HTMLElement,
@@ -65,9 +62,6 @@ export const classList = (
  * <svelte:body use:style={"background-color: blue;"} />
  * <svelte:body use:style={{ backgroundColor: 'blue' }} />
  *```
- *
- * @param {HTMLElement} node
- * @param classString
  */
 export const style = (
     node: HTMLElement,
