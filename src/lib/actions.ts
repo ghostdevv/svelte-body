@@ -1,6 +1,7 @@
-import { writable, get } from 'svelte/store';
-import clsx, { ClassValue } from 'clsx';
 import type { Properties as CSSProperties } from 'csstype';
+import { writable, get } from 'svelte/store';
+import clsx, { type ClassValue } from 'clsx';
+import type { Action } from 'svelte/action';
 
 /**
  * Svelte action to change class on `body`
@@ -22,9 +23,9 @@ import type { Properties as CSSProperties } from 'csstype';
  * <svelte:body use:classList={[ 'red', { blue: isBlue } ]} />
  *```
  */
-export const classList = (
-    node: HTMLElement,
-    classString: string | ClassValue = '',
+export const classList: Action<HTMLElement, string | ClassValue> = (
+    node,
+    classString = '',
 ) => {
     const classes = writable(clsx(classString).split(' ').filter(Boolean));
 
@@ -63,9 +64,9 @@ export const classList = (
  * <svelte:body use:style={{ backgroundColor: 'blue' }} />
  *```
  */
-export const style = (
-    node: HTMLElement,
-    styleData: CSSProperties | string = {},
+export const style: Action<HTMLElement, CSSProperties | string> = (
+    node,
+    styleData = {},
 ) => {
     // Pseudo Element for style parsing and keeping track of styles
     const pseudoElement = document.createElement('div');
