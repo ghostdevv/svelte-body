@@ -1,5 +1,7 @@
 # Svelte Body
 
+Works with Svelte 3 & 4!
+
 Apply styles to the body in routes! Designed to work with Svelte Kit and Routify.
 
 ### [Example REPL](https://svelte.dev/repl/7d04a8d3131c46b5b188744dc86c0fb5?version=3.42.4)
