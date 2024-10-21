@@ -18,7 +18,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"package": "svelte-kit sync && svelte-package"
+		"package": "svelte-kit sync && svelte-package && publint"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.2.5",
@@ -27,6 +27,7 @@
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.7",
+		"publint": "^0.2.11",
 		"svelte": "^5.0.5",
 		"typescript": "^5.6.3",
 		"vite": "^5.4.9"
