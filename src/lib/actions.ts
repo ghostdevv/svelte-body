@@ -7,24 +7,26 @@ function clsxList(input: ClassValue) {
 }
 
 /**
- * Svelte action to change class on `body`
+ * Svelte action to change the class property on an element.
  *
- * You can pass a string or object, or an array of combination of these. Literally anything that [clsx](https://github.com/lukeed/clsx) accepts.
+ * We use [clsx](https://github.com/lukeed/clsx) under the hood,
+ * which allows you to pass different shapes and only have truthy names
+ * applied as classes. Read me about it on their docs.
  *
  * @example
  *
- *```svelte
+ * ```svelte
  * <script>
  *   import { classList } from 'svelte-body';
  *
- *   let isBlue = true;
+ *   let isBlue = $state(true);
  * </script>
  *
  * <svelte:body use:classList={"red green blue"} />
  * <svelte:body use:classList={{ red: true, blue: isBlue }} />
  * <svelte:body use:classList={['red', isBlue && 'blue']} />
  * <svelte:body use:classList={[ 'red', { blue: isBlue } ]} />
- *```
+ * ```
  */
 export const classList: Action<HTMLElement, ClassValue> = (
 	node: HTMLElement,
@@ -47,18 +49,19 @@ export const classList: Action<HTMLElement, ClassValue> = (
 };
 
 /**
- * Svelte action to add style on `body`. style can either be a string or an object.
+ * Svelte action that changes the `style` property on an element.
+ * Accepts both a string and style properties object.
  *
  * @example
  *
- *```svelte
+ * ```svelte
  * <script>
  *   import { style } from 'svelte-body';
  * </script>
  *
  * <svelte:body use:style={"background-color: blue;"} />
  * <svelte:body use:style={{ backgroundColor: 'blue' }} />
- *```
+ * ```
  */
 export const style: Action<HTMLElement, StyleProperties | string> = (
 	node: HTMLElement,
