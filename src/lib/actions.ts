@@ -1,7 +1,10 @@
 import type { Properties as CSSProperties } from 'csstype';
-import { writable, get } from 'svelte/store';
 import clsx, { type ClassValue } from 'clsx';
 import type { Action } from 'svelte/action';
+
+function clsxList(input: ClassValue) {
+	return clsx(input).split(' ').filter(Boolean);
+}
 
 /**
  * Svelte action to change class on `body`
@@ -23,29 +26,22 @@ import type { Action } from 'svelte/action';
  * <svelte:body use:classList={[ 'red', { blue: isBlue } ]} />
  *```
  */
-export const classList: Action<HTMLElement, string | ClassValue> = (
-	node,
-	classString = '',
+export const classList: Action<HTMLElement, ClassValue> = (
+	node: HTMLElement,
+	input: ClassValue,
 ) => {
-	const classes = writable(clsx(classString).split(' ').filter(Boolean));
+	let classes = clsxList(input);
 
-	// When the classes store changes add the new classes
-	const unsubscribe = classes.subscribe((list) => {
-		if (Array.isArray(list) && list?.length) node.classList.add(...list);
-	});
-
-	// Remove all classes that we added
-	const unset = () => node.classList.remove(...get(classes));
+	node.classList.add(...classes);
 
 	return {
-		update: (classString: string | ClassValue = '') => {
-			unset();
-			classes.set(clsx(classString).split(' ').filter(Boolean));
+		update(input: ClassValue) {
+			node.classList.remove(...classes);
+			classes = clsxList(input);
+			node.classList.add(...classes);
 		},
-
-		destroy: () => {
-			unset();
-			unsubscribe();
+		destroy() {
+			node.classList.remove(...classes);
 		},
 	};
 };
@@ -65,17 +61,18 @@ export const classList: Action<HTMLElement, string | ClassValue> = (
  *```
  */
 export const style: Action<HTMLElement, CSSProperties | string> = (
-	node,
+	node: HTMLElement,
 	styleData = {},
 ) => {
 	// Pseudo Element for style parsing and keeping track of styles
 	const pseudoElement = document.createElement('div');
 
 	const update = (styleData: CSSProperties | string = {}) => {
-		if (typeof styleData == 'string')
+		if (typeof styleData == 'string') {
 			pseudoElement.style.cssText = styleData;
+		}
 
-		if (typeof styleData == 'object')
+		if (typeof styleData == 'object') {
 			for (const [property, value] of Object.entries(styleData)) {
 				// Do a setProperty in case it's a CSS variable
 				if (property.startsWith('--')) {
@@ -84,6 +81,7 @@ export const style: Action<HTMLElement, CSSProperties | string> = (
 					pseudoElement.style[property] = value;
 				}
 			}
+		}
 
 		// Combine body's existing styles with computed ones
 		node.style.cssText = `
@@ -111,7 +109,6 @@ export const style: Action<HTMLElement, CSSProperties | string> = (
 			unset();
 			update(styleData);
 		},
-
 		destroy: unset,
 	};
 };
