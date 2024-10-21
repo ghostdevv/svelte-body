@@ -24,30 +24,30 @@ import type { Action } from 'svelte/action';
  *```
  */
 export const classList: Action<HTMLElement, string | ClassValue> = (
-    node,
-    classString = '',
+	node,
+	classString = '',
 ) => {
-    const classes = writable(clsx(classString).split(' ').filter(Boolean));
+	const classes = writable(clsx(classString).split(' ').filter(Boolean));
 
-    // When the classes store changes add the new classes
-    const unsubscribe = classes.subscribe((list) => {
-        if (Array.isArray(list) && list?.length) node.classList.add(...list);
-    });
+	// When the classes store changes add the new classes
+	const unsubscribe = classes.subscribe((list) => {
+		if (Array.isArray(list) && list?.length) node.classList.add(...list);
+	});
 
-    // Remove all classes that we added
-    const unset = () => node.classList.remove(...get(classes));
+	// Remove all classes that we added
+	const unset = () => node.classList.remove(...get(classes));
 
-    return {
-        update: (classString: string | ClassValue = '') => {
-            unset();
-            classes.set(clsx(classString).split(' ').filter(Boolean));
-        },
+	return {
+		update: (classString: string | ClassValue = '') => {
+			unset();
+			classes.set(clsx(classString).split(' ').filter(Boolean));
+		},
 
-        destroy: () => {
-            unset();
-            unsubscribe();
-        },
-    };
+		destroy: () => {
+			unset();
+			unsubscribe();
+		},
+	};
 };
 
 /**
@@ -65,53 +65,53 @@ export const classList: Action<HTMLElement, string | ClassValue> = (
  *```
  */
 export const style: Action<HTMLElement, CSSProperties | string> = (
-    node,
-    styleData = {},
+	node,
+	styleData = {},
 ) => {
-    // Pseudo Element for style parsing and keeping track of styles
-    const pseudoElement = document.createElement('div');
+	// Pseudo Element for style parsing and keeping track of styles
+	const pseudoElement = document.createElement('div');
 
-    const update = (styleData: CSSProperties | string = {}) => {
-        if (typeof styleData == 'string')
-            pseudoElement.style.cssText = styleData;
+	const update = (styleData: CSSProperties | string = {}) => {
+		if (typeof styleData == 'string')
+			pseudoElement.style.cssText = styleData;
 
-        if (typeof styleData == 'object')
-            for (const [property, value] of Object.entries(styleData)) {
-                // Do a setProperty in case it's a CSS variable
-                if (property.startsWith('--')) {
-                    pseudoElement.style.setProperty(property, value);
-                } else {
-                    pseudoElement.style[property] = value;
-                }
-            }
+		if (typeof styleData == 'object')
+			for (const [property, value] of Object.entries(styleData)) {
+				// Do a setProperty in case it's a CSS variable
+				if (property.startsWith('--')) {
+					pseudoElement.style.setProperty(property, value);
+				} else {
+					pseudoElement.style[property] = value;
+				}
+			}
 
-        // Combine body's existing styles with computed ones
-        node.style.cssText = `
+		// Combine body's existing styles with computed ones
+		node.style.cssText = `
 					${node.style.cssText};
 					${pseudoElement.style.cssText};
 				`;
-    };
+	};
 
-    // Initial Update
-    update(styleData);
+	// Initial Update
+	update(styleData);
 
-    const unset = () => {
-        // Remove the pseudoElements styles on the body
-        node.style.cssText = node.style.cssText.replace(
-            pseudoElement.style.cssText,
-            '',
-        );
+	const unset = () => {
+		// Remove the pseudoElements styles on the body
+		node.style.cssText = node.style.cssText.replace(
+			pseudoElement.style.cssText,
+			'',
+		);
 
-        // Clear pseudoElement
-        pseudoElement.style.cssText = '';
-    };
+		// Clear pseudoElement
+		pseudoElement.style.cssText = '';
+	};
 
-    return {
-        update: (styleData) => {
-            unset();
-            update(styleData);
-        },
+	return {
+		update: (styleData) => {
+			unset();
+			update(styleData);
+		},
 
-        destroy: unset,
-    };
+		destroy: unset,
+	};
 };

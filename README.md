@@ -28,26 +28,26 @@ Just like in regular html you can apply classes with `class=""` and styles with 
 
 ```html
 <script>
-    import { Body } from 'svelte-body';
+	import { Body } from 'svelte-body';
 </script>
 
-<Body class="some classes" style="color: blue" />
+<body class="some classes" style="color: blue" />
 ```
 
 Alternativley you can use a style object like so:
 
 ```html
 <script>
-    import { Body } from 'svelte-body';
+	import { Body } from 'svelte-body';
 
-    const style = {
-        backgroundColor: 'violet',
-        color: 'white',
-        '--cool-css-prop': '😎'
-    };
+	const style = {
+		backgroundColor: 'violet',
+		color: 'white',
+		'--cool-css-prop': '😎',
+	};
 </script>
 
-<Body {style} />
+<body {style} />
 ```
 
 For Class, you can pass a combination of string, object, and array of both of these. Literally anything that can be passed to [class](https://github.com/lukeed/clsx).
@@ -96,11 +96,11 @@ There are also [svelte actions](https://svelte.dev/docs#use_action) that can be 
 
     ```html
     <script>
-        import { style } from 'svelte-body';
+    	import { style } from 'svelte-body';
     </script>
 
     <svelte:body
-        use:style="{{ backgroundColor: 'blue', '--cool-css-prop': '😎' }}"
+    	use:style="{{ backgroundColor: 'blue', '--cool-css-prop': '😎' }}"
     />
     ```
 
