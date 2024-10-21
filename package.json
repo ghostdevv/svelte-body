@@ -10,9 +10,9 @@
   "bugs": {
     "url": "https://github.com/ghostdevv/svelte-body/issues"
   },
-  "author": "GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
+  "author": "Willow GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
   "contributors": [
-    "GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
+    "Willow GHOST <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
     "Puru Vijay <devpuruvj@gmail.com> (https://puruvj.dev/)"
   ],
   "scripts": {
@@ -40,6 +40,7 @@
   "type": "module",
   "types": "./dist/index.d.ts",
   "svelte": "./dist/index.js",
+  "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",
     ".": {
