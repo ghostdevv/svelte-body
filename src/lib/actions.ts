@@ -1,6 +1,6 @@
-import type { Properties as CSSProperties } from 'csstype';
 import clsx, { type ClassValue } from 'clsx';
 import type { Action } from 'svelte/action';
+import type { StyleProperties } from './types';
 
 function clsxList(input: ClassValue) {
 	return clsx(input).split(' ').filter(Boolean);
@@ -60,14 +60,14 @@ export const classList: Action<HTMLElement, ClassValue> = (
  * <svelte:body use:style={{ backgroundColor: 'blue' }} />
  *```
  */
-export const style: Action<HTMLElement, CSSProperties | string> = (
+export const style: Action<HTMLElement, StyleProperties | string> = (
 	node: HTMLElement,
-	styleData = {},
+	styleData: string | StyleProperties = {},
 ) => {
 	// Pseudo Element for style parsing and keeping track of styles
 	const pseudoElement = document.createElement('div');
 
-	const update = (styleData: CSSProperties | string = {}) => {
+	const update = (styleData: StyleProperties | string = {}) => {
 		if (typeof styleData == 'string') {
 			pseudoElement.style.cssText = styleData;
 		}
@@ -105,7 +105,7 @@ export const style: Action<HTMLElement, CSSProperties | string> = (
 	};
 
 	return {
-		update: (styleData) => {
+		update: (styleData: string | StyleProperties) => {
 			unset();
 			update(styleData);
 		},
